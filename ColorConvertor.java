@@ -8,7 +8,7 @@ public class ColorConvertor {
         if (type == 1) {
             for (int row = 0; row < myColors.length; i++) {
                 for (int col = 0; col < myColors[row].length; col++){
-                    myColors[row][col] = new Color(myColors.getRGB());
+                    myColors[row][col] = new Color(this.getRGB());
                 }
             }
         }
@@ -21,7 +21,7 @@ public class ColorConvertor {
 		Color[][] rgbToHsv = new Color[myColors.length][myColors[0].length];
 		for (int row = 0; row < myColors.length; i++) {
 			for (int col = 0; col < myColors[row].length; col++){
-				rgbToHsv[row][col] = myColors.RGBtoHSV();
+				rgbToHsv[row][col] = this.RGBtoHSV();
 			}
 		}
 		return rgbToHsv;
@@ -34,7 +34,7 @@ public class ColorConvertor {
 		Color[][] hsvToRgb = new Color[myColors.length][myColors[0].length];
 		for (int row = 0; row < myColors.length; i++) {
 			for (int col = 0; col < myColors[row].length; col++){
-				rgbToHsv[row][col] = myColors.HSVtoRGB();
+				rgbToHsv[row][col] = this.HSVtoRGB();
 			}
 		}
 		return hsvToRgb;
@@ -42,7 +42,7 @@ public class ColorConvertor {
 
 	}
 	public void print() {
-		myColors.printColor();
+		this.printColor();
 
 
 	}
