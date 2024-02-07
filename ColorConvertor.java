@@ -11,9 +11,10 @@ public class ColorConverter {
 		       if (type == 1) {
 		           for (int row = 0; row < myColors.length; row++) {
 		               for (int col = 0; col < myColors[row].length; col++){
-		                   myColors[row][col] = new Color(type, first[index], second[index], third[index]);
-		                   index++;
-		               }
+				       if (type == 1) {
+			                   myColors[row][col] = new Color(type, first[index], second[index], third[index]);
+			                   index++;
+				       }
 		           }
 		       }
 		      
