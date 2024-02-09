@@ -20,7 +20,7 @@ public class Color {
         red = r;
         green = g;
         blue = b;
-       // RGBtoHSV();
+    
     }
 
     public void setHSV(int h, int s, int v) {
@@ -28,42 +28,63 @@ public class Color {
         saturation = s;
         brightness = v;
 
-        //HSVtoRGB();
+      
 
     }
 
     public void setRed(int r) {
         red = r;
 
-        RGBtoHSV();
+       
     }
 
     public void setGreen(int g) {
         green = g;
 
-        RGBtoHSV();
+        
     }
 
     public void setBlue(int b) {
         blue = b;
 
-        RGBtoHSV();
+       
     }
 
     public void setHue(int h) {
         hue = h;
 
-        HSVtoRGB();
+       
     }
     public void setSaturation(int s) {
         saturation = s;
 
-        HSVtoRGB();
+       
     }
     public void setBrightness(int v) {
         brightness = v;
 
-        HSVtoRGB();
+        
+    }
+
+
+    public int getRed(){
+        return red;
+    }
+
+    public int getBlue(){
+        return blue;
+    }
+    public int getGreen(){
+        return green;
+    }
+    public int getHue(){
+        return hue;
+    }
+    public int getSaturation(){
+        return saturation;
+    }
+    public int getBrightness(){
+        return brightness;
     }
 
     public int[] getRGB(){
@@ -206,7 +227,7 @@ public class Color {
             gp =0;
             bp =x;
         }
-        double rt = (rp +m)*225;
+        double rt = (rp +m)*MAX_COLOR;
         if(rt>255){
             red = (int)rt;
         } else {
@@ -215,7 +236,7 @@ public class Color {
             }
         }
 
-        double gt = (gp +m)*225;
+        double gt = (gp +m)*MAX_COLOR;
         if(gt>255){
             green = (int)gt;
         } else {
@@ -224,7 +245,7 @@ public class Color {
             }
         }
 
-        double bt = (bp +m)*225;
+        double bt = (bp +m)*MAX_COLOR;
         if(bt>255){
             blue = (int)bt;
         } else {
