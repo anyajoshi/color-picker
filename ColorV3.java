@@ -117,34 +117,23 @@ public class Color {
 
     }
 
-    private double calculateHue(double r, double g, double b, double max, double min){
-
-        double rp = r/(double)MAX_COLOR;
-        double gp = g/(double)MAX_COLOR;
-        double bp = b/(double)MAX_COLOR;
-
-       
-        double delta =  max- min;
-
-        if(max == rp){
-            return 60*((gp-bp)/delta%6);
-
+    private void calculateHue(double r, double g, double b, double max, double min) {
+		if (max == min) {
+            hue = 0;
         }
-        if (max == gp){
-            return 60*(bp-rp)/delta +2;
+        if (max == r) {
+            hue = (int) (60 * (((g - b) / (max - min)) % 6));
         }
-
-        if (max == bp){
-            return 60*(rp-gp)/delta +4;
+        if (max == g) {
+            hue = (int) (60 * ((b - r) / (max - min)) + 2);
         }
-        return -1;
-
-
+        if (max == b) {
+            hue = (int) (60 * ((r - g) / (max - min)) + 4);
+        }
     }
 
 
-
-    private double calculateSaturation(double r, double g, double b, double max, double min){
+    private void calculateSaturation(double r, double g, double b, double max, double min){
 
         double rp = r/(double)MAX_COLOR;
         double gp = r/(double)MAX_COLOR;
@@ -154,17 +143,17 @@ public class Color {
         double delta =  max- min;
 
         if(max ==0){
-            return 0;
+            saturation = 0;
         }
         if (max !=0){
-            return delta/max;
+            saturation = (int) ((delta) / max);
         }
-        return -1;
+       
 
 
     }
 
-    private double calculateBrightness(){
+    private void calculateBrightness(){
 
 
         double rp = this.red/(double)MAX_COLOR;
@@ -173,7 +162,7 @@ public class Color {
 
 
 
-        return  getMaximum(rp,gp,bp);
+        brightness = (int) getMaximum(rp,gp,bp);
 
 
     }
