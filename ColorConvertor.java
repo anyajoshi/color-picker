@@ -1,73 +1,44 @@
-package color;
+package ColorPackage;
 
 public class ColorConverter {
 		   //Add instance variables here
 		   private Color[][] myColors;
 		  
 		   public ColorConverter(int rows, int cols, int type, int[] first, int[] second, int[] third)
-		   {
-		       myColors = new Color[rows][cols];
-		       int index = 0;
-		       if (type == 1) {
-		           for (int row = 0; row < myColors.length; row++) {
-		               for (int col = 0; col < myColors[row].length; col++){
-				       if (type == 1) {
-			                   myColors[row][col] = new Color(type, first[index], second[index], third[index]);
-			                   index++;
-				       }
-		           }
-		       }
-		      
+			{
+		        myColors = new Color[rows][cols];
+		        int count = 0;
+		        for (int i = 0; i < rows; i++) {
+		            for (int j = 0; j < cols; j++) {
+		                myColors[i][j] = new Color(type, first[count], second[count], third[count++]);
+		            }
+		        }
+		    }
 
+			
+			public Color[][] RGBtoHSV() {
+		        for (int i = 0; i < myColors.length; i++) {
+		            for (int j = 0; j < myColors[i].length; j++) {
+		                myColors[i][j] = myColors[i][j].RGBtoHSV();
+		            }
+		        }
+		        return myColors;
+			}
+			public Color[][] HSVtoRGB() {
+				for (int i = 0; i < myColors.length; i++) {
+		            for (int j = 0; j < myColors[i].length; j++) {
+		                myColors[i][j] = myColors[i][j].HSVtoRGB();
+		            }
+		        }
+		        return myColors;
+		    }
 
-
-
-
-
-		   }
-		  
-		   public Color[][] RGBtoHSV() {
-		       Color[][] rgbToHsv = new Color[myColors.length][myColors[0].length];
-		       for (int row = 0; row < rgbToHsv.length; row++) {
-		           for (int col = 0; col < rgbToHsv[row].length; col++){
-		               rgbToHsv[row][col].RGBtoHSV();
-		           }
-		       }
-		       return rgbToHsv;
-
-
-
-
-
-
-
-
-		   }
-		   public Color[][] HSVtoRGB() {
-		       Color[][] hsvToRgb = new Color[myColors.length][myColors[0].length];
-		       for (int row = 0; row < myColors.length; row++) {
-		           for (int col = 0; col < myColors[row].length; col++){
-		        	   hsvToRgb[row][col].HSVtoRGB();
-		           }
-		       }
-		       return hsvToRgb;
-
-
-
-
-		   }
-		   public void print() {
-			   for (int row = 0; row < myColors.length; row++) {
-		           for (int col = 0; col < myColors[row].length; col++){
-		        	   myColors[row][col].printColor();
-		           }
-		       }
-
-
-
-		   }
+			public void print() {
+		        for (int i = 0; i < myColors.length; i++) {
+		            for (int j = 0; j < myColors[i].length; j++) {
+		                myColors[i][j].printColor();
+		                System.out.println();
+		            }
+		        }
+		    }
 		}
-
-
-
-
