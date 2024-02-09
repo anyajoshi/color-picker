@@ -9,16 +9,43 @@ import javax.swing.JPanel;
 public class ColorConverterDriver extends JPanel {
 	
 	public void paintComponent(Graphics g) {
+		int a =0;
+		int b= 20;
+		int c = 20;
+		int d = 20;
 		
 	    super.paintComponent(g);
 	    Graphics2D g2d = (Graphics2D) g;
 
-	    g2d.setColor(new Color(1, 0, 255, 255));
-	    g2d.drawRect(10, 15, 90, 60);
+	    /*g2d.setColor(new Color(1, 0, 255, 255));
+	    g2d.fillRect(0, 20, 20, 20); //(a , b, how wide it is, top to bottom (how long)
+	    g2d.setColor(new Color(1, 255, 0, 255));
+	    g2d.fillRect(0, 40, 20, 20); //(translate left/right, translate down, how wide it is, top to bottom (how long)
+	    g2d.setColor(new Color(1, 0, 0, 255));
+	    g2d.fillRect(20, 20, 20, 20);//translate to the right
+	    g2d.setColor(new Color(1, 200, 150, 255));
+	    g2d.fillRect(40, 20, 20, 20);
 
 
-	    g2d.setColor(new Color(1, 0, 255, 255));
-	    g2d.fillRect(250, 195, 90, 60);
+	  
+	    g2d.setColor(new Color(1, 255, 255, 0));
+	    g2d.fillRect(40, 20, 20, 20);*/
+	    Color[][] pixel = new Color[250][250];
+	    for (int row=0; row<pixel.length; row++) {
+	    	for (int col = 0; col < pixel[row].length; col++) {
+	    		int x = (int)(Math.random()*256);
+	    		int y = (int)(Math.random()*256);
+	    		int z = (int)(Math.random()*256);
+	    		pixel[row][col] = new Color (1, x, y, z);
+	    		g2d.setColor(pixel[row][col]);
+				g2d.fillRect(a, b, c, d);
+	    		a+=20;
+	    	}
+	    	a=0;
+	    	b+=20;
+	    	
+	    }
+	   
 
 	  }
 	public static void main(String[] args) {
