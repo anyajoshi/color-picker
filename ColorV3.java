@@ -117,14 +117,13 @@ public class Color {
 
     }
 
-    private double calculateHue(){
+    private double calculateHue(double r, double g, double b, double max, double min){
 
-        double rp = this.red/(double)MAX_COLOR;
-        double gp = this.green/(double)MAX_COLOR;
-        double bp = this.blue/(double)MAX_COLOR;
+        double rp = r/(double)MAX_COLOR;
+        double gp = g/(double)MAX_COLOR;
+        double bp = b/(double)MAX_COLOR;
 
-        double max = getMaximum(rp,gp,bp);
-        double min = getMinimum(rp,gp,bp);
+       
         double delta =  max- min;
 
         if(max == rp){
@@ -145,14 +144,13 @@ public class Color {
 
 
 
-    private double calculateSaturation(){
+    private double calculateSaturation(double r, double g, double b, double max, double min){
 
-        double rp = this.red/(double)MAX_COLOR;
-        double gp = this.green/(double)MAX_COLOR;
-        double bp = this.blue/(double)MAX_COLOR;
+        double rp = r/(double)MAX_COLOR;
+        double gp = r/(double)MAX_COLOR;
+        double bp = r/(double)MAX_COLOR;
 
-       double  max = getMaximum(rp,gp,bp);
-       double  min = getMinimum(rp,gp,bp);
+      
         double delta =  max- min;
 
         if(max ==0){
@@ -191,11 +189,13 @@ public class Color {
 
     public Color HSVtoRGB(){
         double c = this.brightness * this.saturation;
-        double y = this.hue/60%2 -1;
+        double y = (this.hue/(double)60)%2 -1;
         if (y < 0){
             y *= -1;
         }
         double x = c * (1 - y );
+
+
         double m = this.brightness -c;
         double rp = 0, gp=0, bp=0;
 
