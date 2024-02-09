@@ -20,7 +20,7 @@ public class Color {
         red = r;
         green = g;
         blue = b;
-    
+
     }
 
     public void setHSV(int h, int s, int v) {
@@ -28,42 +28,42 @@ public class Color {
         saturation = s;
         brightness = v;
 
-      
+
 
     }
 
     public void setRed(int r) {
         red = r;
 
-       
+
     }
 
     public void setGreen(int g) {
         green = g;
 
-        
+
     }
 
     public void setBlue(int b) {
         blue = b;
 
-       
+
     }
 
     public void setHue(int h) {
         hue = h;
 
-       
+
     }
     public void setSaturation(int s) {
         saturation = s;
 
-       
+
     }
     public void setBrightness(int v) {
         brightness = v;
 
-        
+
     }
 
 
@@ -180,14 +180,16 @@ public class Color {
 
     }
 
-    public void RGBtoHSV(){
+    public Color RGBtoHSV(){
 
         hue = (int) calculateHue();
         saturation = (int) calculateSaturation();
         brightness = (int) calculateBrightness();
+
+        return new Color(2,hue, saturation, brightness);
     }
 
-    public void HSVtoRGB(){
+    public Color HSVtoRGB(){
         double c = this.brightness * this.saturation;
         double y = this.hue/60%2 -1;
         if (y < 0){
@@ -253,6 +255,8 @@ public class Color {
                 blue = (int)bt +1;
             }
         }
+
+        return new Color(1, red, green, blue);
     }
 
 
