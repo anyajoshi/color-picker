@@ -117,43 +117,54 @@ public class Color {
 
     }
 
-    private void calculateHue(double r, double g, double b, double max, double min) {
-		if (max == min) {
-            hue = 0;
+    private double calculateHue(double r, double g, double b, double max, double min){
+
+        double rp = r/(double)MAX_COLOR;
+        double gp = g/(double)MAX_COLOR;
+        double bp = b/(double)MAX_COLOR;
+
+
+        double delta =  max- min;
+
+        if(max == rp){
+            return 60*((gp-bp)/delta%6);
+
         }
-        if (max == r) {
-            hue = (int) (60 * (((g - b) / (max - min)) % 6));
+        if (max == gp){
+            return 60*(bp-rp)/delta +2;
         }
-        if (max == g) {
-            hue = (int) (60 * ((b - r) / (max - min)) + 2);
+
+        if (max == bp){
+            return 60*(rp-gp)/delta +4;
         }
-        if (max == b) {
-            hue = (int) (60 * ((r - g) / (max - min)) + 4);
-        }
+        return -1;
+
+
     }
 
 
-    private void calculateSaturation(double r, double g, double b, double max, double min){
+
+    private double calculateSaturation(double r, double g, double b, double max, double min){
 
         double rp = r/(double)MAX_COLOR;
         double gp = r/(double)MAX_COLOR;
         double bp = r/(double)MAX_COLOR;
 
-      
+
         double delta =  max- min;
 
         if(max ==0){
-            saturation = 0;
+            return 0;
         }
         if (max !=0){
-            saturation = (int) ((delta) / max);
+            return delta/max;
         }
-       
+        return -1;
 
 
     }
 
-    private void calculateBrightness(){
+    private double calculateBrightness(){
 
 
         double rp = this.red/(double)MAX_COLOR;
@@ -162,15 +173,19 @@ public class Color {
 
 
 
-        brightness = (int) getMaximum(rp,gp,bp);
+        return  getMaximum(rp,gp,bp);
 
 
     }
 
     public Color RGBtoHSV(){
-
-        hue = (int) calculateHue();
-        saturation = (int) calculateSaturation();
+double r = this.red;
+double g = this.green;
+double b = this.blue;
+double max = getMaximum(r,g,b);
+double min= getMinimum(r,g,b);
+        hue = (int) calculateHue(r,g,b,max,min);
+        saturation = (int) calculateSaturation(r,g,b,max,min);
         brightness = (int) calculateBrightness();
 
         return new Color(2,hue, saturation, brightness);
