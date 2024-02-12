@@ -198,6 +198,7 @@ public class ColorConverterDriver extends JPanel {
             JFrame frame = new JFrame("Rectangles");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.add(rects);
+	    //Shows a 250x250 matrix of colors by calling setSize() method in JFrame class
             frame.setSize(250, 250);
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
