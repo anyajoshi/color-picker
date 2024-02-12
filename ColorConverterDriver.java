@@ -13,12 +13,11 @@ public class ColorConverterDriver extends JPanel {
 
     //instance variable for 2D array rectColors containing Color objects	
     private Color[][] rectColors;
-    /** Places a string into letterBlock in row-major order.
-          * @author Esha Shivakumar
-	  *  @param g object of Graphics class
-	  *  Method initializes the dimensions and coordinates of initial pixel
+    /** Method initializes the dimensions and coordinates of initial pixel
    	  *  for grid
           *  super keyword is used to call the parent class of JPanel
+          * @author Esha Shivakumar
+	  *  @param g object of Graphics class
 	  */
     public void paintComponent(Graphics g) {
         Random rand = new Random();
