@@ -29,15 +29,6 @@ public class ColorConverterDriver extends JPanel {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
 
-	  /*  g2d.setColor(new Color(1, 0, 255, 255));
-	    g2d.fillRect(0, 0, 20, 20); //(a , b, how wide it is, top to bottom (how long)
-	    g2d.setColor(new Color(1, 255, 0, 255));
-	    g2d.fillRect(0, 20, 20, 20); //(translate left/right, translate down, how wide it is, top to bottom (how long)
-	    g2d.setColor(new Color(1, 0, 0, 255));
-	    g2d.fillRect(20, 20, 20, 20);//translate to the right
-	    g2d.setColor(new Color(1, 200, 150, 255));
-	    g2d.fillRect(40, 20, 20, 20);*/
-
         g2d.setColor(new java.awt.Color(255, 255, 0));
         g2d.fillRect(40, 20, 40, 40);
         for (int row=0; row< rectColors.length; row++) {
