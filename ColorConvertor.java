@@ -62,7 +62,7 @@ public class ColorConverter {
     
     /**
 	   * Prints the 2D array of color objects (myColors) by calling printColor() method from Color class
-	   * @author - Esha Shivakumar	   * 
+	   * @author - Esha Shivakumar	   
 	   */
     public void print() {
         for (int i = 0; i < myColors.length; i++) {
