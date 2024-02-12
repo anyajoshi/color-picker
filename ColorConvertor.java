@@ -11,10 +11,10 @@ public class ColorConverter {
 	   * @author - Esha Shivakumar
 	   * @param rows - number of rows
 	   * @param cols - number of columns
-	   * @param type - type of array (RGB/HSV integers)
-	   * @param first - array of red integers or hue integers
-	   * @param second - array of green integers or saturation integers
-	   * @param third - array of blue integers or value integers
+	   * @param type - type of array (RGB/HSV values)
+	   * @param first - array of red values or hue integers
+	   * @param second - array of green values or saturation integers
+	   * @param third - array of blue values or value integers
 	   * 
 	   */
     public ColorConverter(int rows, int cols, int type, int[] first, int[] second, int[] third)
@@ -31,36 +31,38 @@ public class ColorConverter {
     /**
 	   * Calls the RGBtoHSV() method from color class to convert HSV to RGB
 	   * @author - Esha Shivakumar
-	   * @return - 2D array of color objects (myColors) where values are manipulated to HSV values 
+	   * @return - rgbtoHsv: 2D array of color objects where values are manipulated to HSV values 
 	   * 
 	   */
     public Color[][] RGBtoHSV() {
-        for (int i = 0; i < myColors.length; i++) {
-            for (int j = 0; j < myColors[i].length; j++) {
-                myColors[i][j] = myColors[i][j].RGBtoHSV();
+    	Color[][] rgbtoHsv = myColors;
+        for (int i = 0; i < rgbtoHsv.length; i++) {
+            for (int j = 0; j < rgbtoHsv[i].length; j++) {
+            	rgbtoHsv[i][j] = myColors[i][j].RGBtoHSV();
             }
         }
-        return myColors;
+        return rgbtoHsv;
     }
     
     /**
 	   * Calls the HSVtoRGB() method from color class to convert HSV to RGB
 	   * @author - Esha Shivakumar
-	   * @return - 2D array of color objects (myColors) where values are manipulated to RGB values 
+	   * @return - hsvtoRgb: 2D array of color objects where values are manipulated to RGB values 
 	   */
     public Color[][] HSVtoRGB() {
-        for (int i = 0; i < myColors.length; i++) {
-            for (int j = 0; j < myColors[i].length; j++) {
-                myColors[i][j] = myColors[i][j].HSVtoRGB();
+    	Color[][] hsvtoRgb = myColors;
+        for (int i = 0; i < hsvtoRgb.length; i++) {
+            for (int j = 0; j < hsvtoRgb[i].length; j++) {
+            	hsvtoRgb[i][j] = myColors[i][j].HSVtoRGB();
             }
         }
-        return myColors;
+        return hsvtoRgb;
     }
 
     
     /**
 	   * Prints the 2D array of color objects (myColors) by calling printColor() method from Color class
-	   * @author - Esha Shivakumar	   
+	   * @author - Esha Shivakumar	   * 
 	   */
     public void print() {
         for (int i = 0; i < myColors.length; i++) {
