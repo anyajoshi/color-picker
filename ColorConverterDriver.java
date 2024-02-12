@@ -98,7 +98,7 @@ public class ColorConverterDriver extends JPanel {
         System.out.println("== Random HSV to RGB ==");
         System.out.println("==============");
 
-        //SHow Random HSV to RGB
+        //Shows Random HSV to RGB
         int[] hueArray = new int[16];
         int[] saturationArray = new int[16];
         int[] brightnessArray = new int[16];
@@ -113,7 +113,7 @@ public class ColorConverterDriver extends JPanel {
         ccRandomHSV.HSVtoRGB();
         ccRandomHSV.print();
 
-        //Menu
+        //Menu using Scanner class
         Scanner s = new Scanner(System.in);  // Create a Scanner object
         System.out.println("Enter Conversion Choice (1 for RGB-to-HSV or 2 for HSV-to-RGB)");
 
@@ -136,8 +136,11 @@ public class ColorConverterDriver extends JPanel {
         
         System.out.println("Enter location of your data file");
         String dataFileLoc = s.next();
-       //@author Anya Joshi
-        try {
+       
+	    
+	//@author - Anya Joshi
+        
+	try {
             File f = new File(dataFileLoc);
             System.out.println(f.getAbsolutePath());
             Scanner dataScanner = new Scanner(f);
