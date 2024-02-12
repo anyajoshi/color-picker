@@ -7,6 +7,7 @@ public class Color {
     private int saturation;
     private int brightness;
     /**
+     * constructor for the color class
      * @author Anya Joshi
      * @param type - 1 for rgb to hsv and 2 for hsv to rgb
      * @param value1 - red or hue
@@ -22,6 +23,7 @@ public class Color {
     }
 
     /**
+     * Sets RGB values
      * @author Anya Joshi
      * @param r - numerical red value
      * @param g - numerical green value
@@ -34,7 +36,9 @@ public class Color {
 
     }
     /**
-     * @author Anya Joshi
+     * Sets HSV values
+     *
+     *  @author Anya Joshi
      * @param h - numerical hue value
      * @param s - numerical saturation value
      * @param v- numerical brightness value
@@ -48,7 +52,8 @@ public class Color {
 
     }
     /**
-     * @author Anya Joshi
+     * Sets red value
+     *  @author Anya Joshi
      * @param r- numerical red value
      */
     public void setRed(int r) {
@@ -57,6 +62,7 @@ public class Color {
 
     }
     /**
+     * sets Green value
      * @author Anya Joshi
      * @param g- numerical green value
      */
@@ -66,6 +72,7 @@ public class Color {
 
     }
     /**
+     * Sets Blue value
      * @author Anya Joshi
      * @param b- numerical blue value
      */
@@ -75,7 +82,8 @@ public class Color {
 
     }
     /**
-     * @author Anya Joshi
+     * sets hue value
+     *  @author Anya Joshi
      * @param h- numerical Hue value
      */
     public void setHue(int h) {
@@ -84,7 +92,8 @@ public class Color {
 
     }
     /**
-     * @author Anya Joshi
+     * sets saturation value
+     *  @author Anya Joshi
      * @param s- numerical saturation value
      */
     public void setSaturation(int s) {
@@ -93,7 +102,8 @@ public class Color {
 
     }
     /**
-     * @author Anya Joshi
+     * sets brightness value
+     *  @author Anya Joshi
      * @param v- numerical brightness value
      */
     public void setBrightness(int v) {
@@ -103,6 +113,7 @@ public class Color {
     }
 
     /**
+     * gets red value
      * @author Anya Joshi
      * @return red - numerical red value
      */
@@ -110,6 +121,7 @@ public class Color {
         return red;
     }
     /**
+     * gets blue value
      * @author Anya Joshi
      * @return blue - numerical blue value
      */
@@ -117,6 +129,7 @@ public class Color {
         return blue;
     }
     /**
+     * gets green value
      * @author Anya Joshi
      * @return green - numerical green value
      */
@@ -124,13 +137,15 @@ public class Color {
         return green;
     }
     /**
-     * @author Anya Joshi
+     * gets hue value
+     *  @author Anya Joshi
      * @return hue - numerical hue value
      */
     public int getHue(){
         return hue;
     }
     /**
+     * get saturation value
      * @author Anya Joshi
      * @return saturation - numerical saturation value
      */
@@ -138,6 +153,7 @@ public class Color {
         return saturation;
     }
     /**
+     * get brightness value
      * @author Anya Joshi
      * @return brightness - numerical brightness value
      */
@@ -145,7 +161,8 @@ public class Color {
         return brightness;
     }
     /**
-     *  @author Anya Joshi
+     *
+     * @author Anya Joshi
      * @return new int[] - array of rgb values
      */
 
@@ -266,15 +283,6 @@ public class Color {
 
     }
 
-    /**
-     * @author Anya Joshi
-     * @param r - numerical red value
-     * @param g - numerical green value
-     * @param b - numerical blue value
-     * @param max - max value
-     * @param min- min value
-     * @return hue - the calculated hue value
-     */
 
     /**
      * @author Anya Joshi
@@ -347,9 +355,7 @@ public class Color {
         if(rt>255){
             red = (int)rt;
         } else {
-            //if (rt * 10 % 10 != 0){
-             //   red = (int)rt +1;
-            //}
+
             red = (int)(rt + 0.99);
         }
 
@@ -357,9 +363,7 @@ public class Color {
         if(gt>255){
             green = (int)gt;
         } else {
-            //if (gt * 10 % 10 != 0){
-             //   green = (int)gt +1;
-            //}
+
             green = (int)(gt + 0.99);
         }
 
@@ -389,21 +393,6 @@ public class Color {
                 , (""+ c+", ") , saturation , "%, " , brightness ,
                 "%)\n");
     }
-
-
-    public static void main(String[] args){
-        int h,s,v;
-        h =    180;
-        s = 100;
-        v = 50;
-
-        Color c = new Color(2, h,s,v);
-        c.HSVtoRGB();
-
-        System.out.println(c.getRed() + " - " + c.getGreen() + " - " + c.getBlue());
-
-    }
-
 
 
 
