@@ -11,16 +11,15 @@ import javax.swing.JPanel;
 
 public class ColorConverterDriver extends JPanel {
 
-    //instance variable for 2D array rectColors containing Color objects	
+    //instance variable for 2D array rectColors containing Color objects
     private Color[][] rectColors;
     /** Method initializes the dimensions and coordinates of initial pixel
-   	  *  for grid
-          *  super keyword is used to call the parent class of JPanel
-          * @author Esha Shivakumar
-	  *  @param g object of Graphics class
-	  */
+     *  for grid
+     *  super keyword is used to call the parent class of JPanel
+     * @author Esha Shivakumar
+     *  @param g object of Graphics class
+     */
     public void paintComponent(Graphics g) {
-        Random rand = new Random();
         int a =0;
         int b= 0;
         int c = 60;
@@ -44,14 +43,14 @@ public class ColorConverterDriver extends JPanel {
 
     }
 
-   /** Main method. Creates a new object of ColorConverter class
-   * @author Esha Shivakumar
-   * Prints given RGB values to HSV and vice versa
-   * Converts random RGB values to HSV using Random class
-   * Displays a matrix of colors depending on rgb.txt values
-   * Scanner class is used to provide a menu to the user to convert RGB to HSV or HSV to RGB
-   * Error checking is included by alerting the user if the value they entered is valid or not
-   */
+    /** Main method. Creates a new object of ColorConverter class
+     * @author Esha Shivakumar
+     * Prints given RGB values to HSV and vice versa
+     * Converts random RGB values to HSV using Random class
+     * Displays a matrix of colors depending on rgb.txt values
+     * Scanner class is used to provide a menu to the user to convert RGB to HSV or HSV to RGB
+     * Error checking is included by alerting the user if the value they entered is valid or not
+     */
 
     public static void main(String[] args) {
 
@@ -113,76 +112,76 @@ public class ColorConverterDriver extends JPanel {
         ccRandomHSV.HSVtoRGB();
         ccRandomHSV.print();
 
+        boolean valid = false;
+        int type = 0;
         //Menu using Scanner class
+
         Scanner s = new Scanner(System.in);  // Create a Scanner object
-        System.out.println("Enter Conversion Choice (1 for RGB-to-HSV or 2 for HSV-to-RGB)");
-
-        int type = s.nextInt();
-        if(type != 1 && type != 2){
-            System.out.println("Invalid entry");
-            System.exit(0);
+        while (!valid){
+            System.out.println("Enter Conversion Choice (1 for RGB-to-HSV or 2 for HSV-to-RGB)");
+            type = s.nextInt();
+            if(type != 1 && type != 2){
+                System.out.println("Invalid entry");
+            } else {
+                valid = true;
+            }
         }
 
-        System.out.println("Enter Color Array Size between 1 and 16");
-        int size = s.nextInt();
-        if(type == 0 || size > 16){
-            System.out.println("Invalid range");
-            System.exit(0);
-        }
-
+        int size = 16;
         int[] x = new int[size];
         int[] y = new int[size];
         int[] z = new int[size];
-        
-        System.out.println("Enter location of your data file");
-        String dataFileLoc = s.next();
-       
-	    
-	//@author - Anya Joshi
-        
-	try {
-            File f = new File(dataFileLoc);
-            System.out.println(f.getAbsolutePath());
-            Scanner dataScanner = new Scanner(f);
-            for (int i=0;i<size;i++){
-                x[i]=dataScanner.nextInt();
-                if(type ==1 && (x[i] <0 || x[i] > 255)){
-                    System.out.println("Invalid value for Red. Range 0-255");
-                    System.exit(0);
-                } else if (type ==2 && (x[i] <0 || x[i] >= 360)){
-                    System.out.println("Invalid value for Hue. Range 0-359 degrees");
-                    System.exit(0);
+
+        valid = false;
+        while (!valid){
+            System.out.println("Enter location of your data file");
+            String dataFileLoc = s.next();
+            boolean inputValid = true;
+            try {
+                File f = new File(dataFileLoc);
+                Scanner dataScanner = new Scanner(f);
+                for (int i=0;i<size;i++){
+                    x[i]=dataScanner.nextInt();
+                    if(type ==1 && (x[i] <0 || x[i] > 255)){
+                        System.out.println("Invalid value for Red. Range 0-255");
+                        inputValid = false;
+                    } else if (type ==2 && (x[i] <0 || x[i] >= 360)){
+                        System.out.println("Invalid value for Hue. Range 0-359 degrees");
+                        inputValid = false;
+                    }
+                }
+
+                for (int i=0;i<size;i++){
+                    y[i]=dataScanner.nextInt();
+                    if(type ==1 && (y[i] <0 || y[i] > 255)){
+                        System.out.println("Invalid value for Green . Range 0-255");
+                        inputValid = false;
+                    } else if (type ==2 && (y[i] <0 || y[i] > 100)){
+                        System.out.println("Invalid value for Saturation. Range 0-100 %");
+                        inputValid = false;
+                    }
+                }
+
+                for (int i=0;i<size;i++){
+                    z[i]=dataScanner.nextInt();
+                    if(type ==1 && (z[i] <0 || z[i] > 255)){
+                        System.out.println("Invalid value for Blue. Range 0-255");
+                        inputValid = false;
+                    } else if (type ==2 && (z[i] <0 || z[i] > 100)){
+                        System.out.println("Invalid value for Brightness. Range 0-100 %");
+                        inputValid = false;
+                    }
+                }
+                if(inputValid){
+                    valid = true;
                 }
             }
-
-            for (int i=0;i<size;i++){
-                y[i]=dataScanner.nextInt();
-                if(type ==1 && (y[i] <0 || y[i] > 255)){
-                    System.out.println("Invalid value for Green . Range 0-255");
-                    System.exit(0);
-                } else if (type ==2 && (y[i] <0 || y[i] > 100)){
-                    System.out.println("Invalid value for Saturation. Range 0-100 %");
-                    System.exit(0);
-                }
-            }
-
-            for (int i=0;i<size;i++){
-                z[i]=dataScanner.nextInt();
-                if(type ==1 && (z[i] <0 || z[i] > 255)){
-                    System.out.println("Invalid value for Blue. Range 0-255");
-                } else if (type ==2 && (z[i] <0 || z[i] > 100)){
-                    System.out.println("Invalid value for Brightness. Range 0-100 %");
-                }
-
+            //Catches file errors
+            catch(Exception e){
+                System.out.println("Something went wrong: " + e.toString());
+                valid = false;
             }
         }
-	//Catches file errors
-        catch(Exception e){
-            System.out.println("Something went wrong: " + e.toString());
-            e.printStackTrace();
-            System.exit(0);
-        }
-
 
         System.out.println("==============");
         System.out.println("== User Input  ==");
@@ -198,7 +197,7 @@ public class ColorConverterDriver extends JPanel {
             JFrame frame = new JFrame("Rectangles");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.add(rects);
-	    //Shows a 250x250 matrix of colors by calling setSize() method in JFrame class
+            //Shows a 250x250 matrix of colors by calling setSize() method in JFrame class
             frame.setSize(250, 250);
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
