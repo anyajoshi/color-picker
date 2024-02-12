@@ -14,6 +14,7 @@ public class ColorConverterDriver extends JPanel {
     //instance variable for 2D array rectColors containing Color objects	
     private Color[][] rectColors;
     /** Places a string into letterBlock in row-major order.
+          * @author Esha Shivakumar
 	  *  @param g object of Graphics class
 	  *  Method initializes the dimensions and coordinates of initial pixel
    	  *  for grid
@@ -54,6 +55,7 @@ public class ColorConverterDriver extends JPanel {
     }
 
    /** Main method. Creates a new object of ColorConverter class
+   * @author Esha Shivakumar
    * Prints given RGB values to HSV and vice versa
    * Converts random RGB values to HSV using Random class
    * Displays a matrix of colors depending on rgb.txt values
@@ -141,9 +143,10 @@ public class ColorConverterDriver extends JPanel {
         int[] x = new int[size];
         int[] y = new int[size];
         int[] z = new int[size];
-
+        
         System.out.println("Enter location of your data file");
         String dataFileLoc = s.next();
+       //@author Anya Joshi
         try {
             File f = new File(dataFileLoc);
             System.out.println(f.getAbsolutePath());
