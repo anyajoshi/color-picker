@@ -11,8 +11,14 @@ import javax.swing.JPanel;
 
 public class ColorConverterDriver extends JPanel {
 
+    //instance variable for 2D array rectColors containing Color objects	
     private Color[][] rectColors;
-
+    /** Places a string into letterBlock in row-major order.
+	  *  @param g object of Graphics class
+	  *  Method initializes the dimensions and coordinates of initial pixel
+   	  *  for grid
+          *  super keyword is used to call the parent class of JPanel
+	  */
     public void paintComponent(Graphics g) {
         Random rand = new Random();
         int a =0;
@@ -47,7 +53,10 @@ public class ColorConverterDriver extends JPanel {
 
     }
 
-
+   /** Main method. Creates a new object of ColorConverter class
+   * Displays a matrix of colors depending on rgb.txt values
+   * 
+   */
 
     public static void main(String[] args) {
 
@@ -168,6 +177,7 @@ public class ColorConverterDriver extends JPanel {
 
             }
         }
+	//Catches file errors
         catch(Exception e){
             System.out.println("Something went wrong: " + e.toString());
             e.printStackTrace();
