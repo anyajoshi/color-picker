@@ -143,10 +143,10 @@ public class ColorConverterDriver extends JPanel {
                 for (int i=0;i<size;i++){
                     x[i]=dataScanner.nextInt();
                     if(type ==1 && (x[i] <0 || x[i] > 255)){
-                        System.out.println("Invalid value for Red. Range 0-255");
+                        System.out.println("Invalid value for Red. Range 0-255"); //error handling
                         inputValid = false;
                     } else if (type ==2 && (x[i] <0 || x[i] >= 360)){
-                        System.out.println("Invalid value for Hue. Range 0-359 degrees");
+                        System.out.println("Invalid value for Hue. Range 0-359 degrees"); //error handling
                         inputValid = false;
                     }
                 }
@@ -154,10 +154,10 @@ public class ColorConverterDriver extends JPanel {
                 for (int i=0;i<size;i++){
                     y[i]=dataScanner.nextInt();
                     if(type ==1 && (y[i] <0 || y[i] > 255)){
-                        System.out.println("Invalid value for Green . Range 0-255");
+                        System.out.println("Invalid value for Green . Range 0-255");//error handling
                         inputValid = false;
                     } else if (type ==2 && (y[i] <0 || y[i] > 100)){
-                        System.out.println("Invalid value for Saturation. Range 0-100 %");
+                        System.out.println("Invalid value for Saturation. Range 0-100 %"); //error handling
                         inputValid = false;
                     }
                 }
@@ -165,10 +165,10 @@ public class ColorConverterDriver extends JPanel {
                 for (int i=0;i<size;i++){
                     z[i]=dataScanner.nextInt();
                     if(type ==1 && (z[i] <0 || z[i] > 255)){
-                        System.out.println("Invalid value for Blue. Range 0-255");
+                        System.out.println("Invalid value for Blue. Range 0-255");//error handling
                         inputValid = false;
                     } else if (type ==2 && (z[i] <0 || z[i] > 100)){
-                        System.out.println("Invalid value for Brightness. Range 0-100 %");
+                        System.out.println("Invalid value for Brightness. Range 0-100 %");//error handling
                         inputValid = false;
                     }
                 }
@@ -178,7 +178,7 @@ public class ColorConverterDriver extends JPanel {
             }
             //Catches file errors
             catch(Exception e){
-                System.out.println("Something went wrong: " + e.toString());
+                System.out.println("Something went wrong: " + e.toString()); //error handling
                 valid = false;
             }
         }
