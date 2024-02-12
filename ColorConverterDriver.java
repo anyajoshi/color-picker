@@ -54,8 +54,11 @@ public class ColorConverterDriver extends JPanel {
     }
 
    /** Main method. Creates a new object of ColorConverter class
+   * Prints given RGB values to HSV and vice versa
+   * Converts random RGB values to HSV using Random class
    * Displays a matrix of colors depending on rgb.txt values
-   * 
+   * Scanner class is used to provide a menu to the user to convert RGB to HSV or HSV to RGB
+   * Error checking is included by alerting the user if the value they entered is valid or not
    */
 
     public static void main(String[] args) {
